@@ -1,0 +1,18 @@
+body {
+  background-color: #e0e0e0;
+}
+
+#main-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+h1 {
+  font-size: 72px;
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+}

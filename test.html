@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+<html>
+  <head>
+    <title>Galerie Pokémon</title>
+    <style>
+      /* Mise en forme de la galerie */
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .gallery img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Galerie Pokémon</h1>
+    <div class="gallery">
+      <!-- Affichage des images -->
+      <?php
+        $images = glob("images/*.{jpg,jpeg,png,gif}", GLOB_BRACE);
+        foreach($images as $image) {
+          echo "<img src='$image' alt='Pokemon Image'>";
+        }
+      ?>
+    </div>
+    <!-- Formulaire d'ajout d'image -->
+    <form action="traitements/upload_image.php" method="post" enctype="multipart/form-data">
+      <input type="file" name="image">
+      <input type="submit" value="Upload">
+    </form>
+  </body>
+</html>

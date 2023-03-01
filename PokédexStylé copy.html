@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"></link>
+    <title>Pokédex</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-image: url("https://wallup.net/wp-content/uploads/2016/05/24/143434-nature-Pokemon.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#pokemon-image {
+    width: 200px;
+    height: 200px;
+    transform: translateY(3.5rem);
+    animation: jump 0.3s ease-in-out;
+}
+
+@keyframes jump {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#pokedex {
+    width: 200px;
+    height: 200px;
+    transform: translateY(3.5rem);
+    animation: jump 0.3s ease-in-out;
+}
+
+@keyframes jump {
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+
+#pokedex {
+    width: 22rem;
+    height: 35rem;
+    background-color: rgb(116, 203,  72);
+    border-radius: 8px;
+    padding: 0.3rem;
+    transition: background-color 0.5s ease-in-out;
+}
+
+
+#top {
+    height: 40%;
+    padding: 0.5rem;
+    background: url('../images/pokeball.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background: linear-gradient(to right, rgb(color1), rgb(color2));
+}
+
+
+    
+
+
+
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    padding: 0 1.2rem;
+}
+
+#search {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 60%;
+    text-transform: capitalize;
+}
+
+#search:focus {
+    outline: none;
+}
+
+#poke-image-placeholder {
+    display: flex;
+    justify-content: center;
+}
+
+#pokemon-image {
+    width: 200px;
+    height: 200px;
+    transform: translateY(3.5rem);
+}
+
+#data {
+    background-color: white;
+    height: 60%;
+    border-radius: 8px;
+    padding-top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#types {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.type {
+    color: white;
+    padding: 0.3rem 0.6rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#data h4 {
+    text-align: center;
+}
+
+#stats {
+    width: 80%;
+    font-size: 0.8rem;
+    gap: 0.6rem;
+}
+
+.stat-row {
+    display: flex;
+}
+
+.stat-desc, .stat-number {
+    width: 13%;
+}
+
+.stat-desc {
+    color:  rgb(116, 203, 72);
+    font-weight: bold;
+    text-align: right;
+    margin-right: 0.6rem;
+    transition: color 0.5s ease-in-out;
+}
+
+.stat-number {
+    border-left: 1px solid gray;
+    text-align: right;
+}
+
+.stat-bar {
+    width: 76%;
+    display: flex;
+    align-items: center;
+    padding-left: 0.6rem;
+}
+
+.bar-outer {
+    background-color: rgba(116, 203, 72, 0.3);
+    display: flex;
+    width: 100%;
+    height: 0.3rem;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+.bar-inner {
+    background-color: rgb(116, 203, 72);
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+
+#base-stats {
+    transition: color 0.5s ease-in-out;
+}
+
+
+</style>
+<body>
+    <div id="pokedex">
+        <div id="top">
+            <div id="top-bar">
+                <input
+                    type="text"
+                    id="search"
+                    value="Bulbasaur" 
+                />
+                <span id="number">#001</span>
+            </div>
+            <div id="poke-image-placeholder">
+                <img src="1.png" id="pokemon-image" alt="pokemon-image" />
+            </div>
+        </div>
+        <div id="data">
+            <div id="types">
+                <span
+                    style="background-color: rgb(116, 203, 72);"
+                    class="type"
+                >
+                    Grass
+                </span>
+                <span
+                    style="background-color: rgb(164,  62, 158);"
+                    class="type"
+                >
+                    Poison
+                </span>
+            </div>
+
+            <h4 id="base-stats" style="color: rgb(116, 203, 72);">Base Stats</h4>
+            <div id="cardContainer">
+                <div id="cards">
+                    <img src="path/to/card1.jpg" alt="card1">
+                    <img src="path/to/card2.jpg" alt="card2">
+                    <img src="path/to/card3.jpg" alt="card3">
+                    <img src="path/to/card4.jpg" alt="card4">
+                </div>
+                <button id="prev">Previous</button>
+                <button id="next">Next</button>
+            </div>
+            
+            <div id="stats">
+                <div class="stat-row">
+                    <div class="stat-desc">HP</div>
+                    <div class="stat-number">045</div>
+                    <div class="stat-bar">
+                        <div class="bar-outer">
+                            <div class="bar-inner" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-desc">ATK</div>
+                    <div class="stat-number">049</div>
+                    <div class="stat-bar">
+                        <div class="bar-outer">
+                            <div class="bar-inner" style="width: 49%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-desc">DEF</div>
+                    <div class="stat-number">049</div>
+                    <div class="stat-bar">
+                        <div class="bar-outer">
+                            <div class="bar-inner" style="width: 49%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-desc">SATK</div>
+                    <div class="stat-number">065</div>
+                    <div class="stat-bar">
+                        <div class="bar-outer">
+                            <div class="bar-inner" style="width: 65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-row">
+                    <div class="stat-desc">SDEF</div>
+                    <div class="stat-number">065</div>
+                    <div class="stat-bar">
+                        <div class="bar-outer">
+                            <div class="bar-inner" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="stat-row">
+                    <div class="stat-desc">SPD</div>
+                    <div class="stat-number">045</div>
+                    <div class="stat-bar">
+                        <div class="bar-outer">
+                            <div class="bar-inner" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const search       = document.querySelector('#search');
+const number       = document.querySelector('#number');
+const pokemonImage = document.querySelector('#pokemon-image');
+const types        = document.querySelector('#types');
+const statNumber   = document.querySelectorAll('.stat-number');
+const barInner     = document.querySelectorAll('.bar-inner');
+const barOuter     = document.querySelectorAll('.bar-outer');
+const statDesc     = document.querySelectorAll('.stat-desc');
+const baseStats    = document.querySelector('#base-stats');
+const pokedex      = document.querySelector('#pokedex');
+
+const typeColors = {
+    "rock":     [182, 158,  49],
+    "ghost":    [112,  85, 155],
+    "steel":    [183, 185, 208],
+    "water":    [100, 147, 235],
+    "grass":    [116, 203,  72],
+    "psychic":  [251,  85, 132],
+    "ice":      [154, 214, 223],
+    "dark":     [117,  87,  76],
+    "fairy":    [230, 158, 172],
+    "normal":   [170, 166, 127],
+    "fighting": [193,  34,  57],
+    "flying":   [168, 145, 236],
+    "poison":   [164,  62, 158],
+    "ground":   [222, 193, 107],
+    "bug":      [167, 183,  35],
+    "fire":     [245, 125,  49],
+    "electric": [249, 207,  48],
+    "dragon":   [112,  55, 255]
+}
+
+const fetchApi = async (pkmnName) => {
+    // Joining Pokémon names that has more than one word
+    pkmnNameApi = pkmnName.split(' ').join('-');
+
+    const response = await fetch('https://pokeapi.co/api/v2/pokemon/' + pkmnNameApi);
+    
+    if (response.status === 200) {
+        const pkmnData = await response.json();
+        return pkmnData;
+    } 
+
+    return false;
+}
+
+search.addEventListener('change', async (event) => {
+    const pkmnData  = await fetchApi(event.target.value);
+
+    // Validation when Pokémon does not exist
+    if (!pkmnData) {
+        alert('Pokémon does not exist.');
+        return;
+    }
+
+    // Main Pokémon color, in order to change UI theme
+    const mainColor = typeColors[pkmnData.types[0].type.name];
+    baseStats.style.color         = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+    pokedex.style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+    if (pkmnData.types.length > 1) {
+        const secondColor = typeColors[pkmnData.types[1].type.name];
+        pokedex.style.backgroundImage = `linear-gradient(to right, rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}), rgb(${secondColor[0]}, ${secondColor[1]}, ${secondColor[2]}))`;
+    }
+    
+
+    // For debugging - Will be removed later on
+    console.log(pkmnData);
+
+    // Sets pokemon # at the top of the page
+    number.innerHTML = '#' + pkmnData.id.toString().padStart(3, '0');
+
+    // Sets pokemon image
+    pokemonImage.src = pkmnData.sprites.other.home.front_default;
+
+    // Updates "Type" bubbles
+    types.innerHTML = '';
+
+    pkmnData.types.forEach((t) => {
+        let newType = document.createElement('span');
+        let color   = typeColors[t.type.name];
+
+        newType.innerHTML = t.type.name;
+        newType.classList.add('type');
+        newType.style.backgroundColor = `rgb(${color[0]}, ${color[1]}, ${color[2]})`; 
+
+        types.appendChild(newType);
+    });
+    const cardContainer = document.getElementById("cardContainer");
+const cards = document.getElementById("cards");
+const prevButton = document.getElementById("prev");
+const nextButton = document.getElementById("next");
+
+let currentPosition = 0;
+
+prevButton.addEventListener("click", () => {
+  currentPosition = Math.max(currentPosition - 1, 0);
+  cards.style.left = `-${currentPosition * 100}%`;
+});
+
+nextButton.addEventListener("click", () => {
+  currentPosition = Math.min(currentPosition + 1, 3);
+  cards.style.left = `-${currentPosition * 100}%`;
+});
+
+    // Updates Stats and Stats bars
+    pkmnData.stats.forEach((s, i) => {
+        statNumber[i].innerHTML = s.base_stat.toString().padStart(3, '0');
+        barInner[i].style.width = `${s.base_stat}%`;
+        barInner[i].style.backgroundColor = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+        barOuter[i].style.backgroundColor = `rgba(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}, 0.3)`;
+        statDesc[i].style.color           = `rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]})`;
+    });
+});
+
+
+    </script>
+</body>
+</html>
